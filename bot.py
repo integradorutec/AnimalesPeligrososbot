@@ -21,6 +21,11 @@ def echo(bot, update):
     try:
         text=update.message.text
         update.message.reply_text(text)
+        
+        #url="https://8080-aquamarine-moth-aqdibn04.ws-us03.gitpod.io/movies?texto="+text
+        response = requests.get("https://8080-aquamarine-moth-aqdibn04.ws-us03.gitpod.io/movies?texto="+text)
+        update.message.reply_text(response.text)
+
     except Exception as error:
         print("Error 002 {}".format(error.args[0]))
 
@@ -58,7 +63,7 @@ def getImagen(bot, update):
         #image.write(file.read()) # writes the uploaded file to the newly created file.
         #print(image)                     
         myobj={"myfile":open(filename,'rb')}
-        r = requests.post("https://8080-gray-toucan-xh8rkjhw.ws-us03.gitpod.io/upload", files=myobj)
+        r = requests.post("https://8080-lavender-marsupial-90f17fck.ws-us03.gitpod.io/upload", files=myobj)
         
         
         
