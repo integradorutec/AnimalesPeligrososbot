@@ -20,9 +20,9 @@ def start(bot, update):
 def echo(bot, update):
     try:
         text=update.message.text
-        update.message.reply_text(text)
+        update.message.reply_text("Recibi: "+text)
         
-        #url="https://8080-aquamarine-moth-aqdibn04.ws-us03.gitpod.io/movies?texto="+text
+       
         response = requests.get("https://8080-aquamarine-moth-aqdibn04.ws-us03.gitpod.io/movies?texto="+text)
         update.message.reply_text(response.text)
 
